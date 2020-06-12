@@ -1,0 +1,10 @@
+npm init -y
+
+//servidor
+servor src index.html 8080 --reload
+
+//install webpack
+npm i webpack webpack-cli --save-dev
+
+//css
+npm install tailwindcss
