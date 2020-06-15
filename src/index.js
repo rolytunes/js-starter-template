@@ -1,3 +1,4 @@
-import app from "./assets/app";
+import app from "./assets/app.js";
+import "./styles.css";
 
-console.log("loading app");
+/*document.getElementById("app").prepend(app());*/

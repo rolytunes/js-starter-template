@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
+const path = require("path");
 
 const jsRules = [
   {
@@ -21,6 +22,14 @@ const jsRules = [
     test: /\.s[ac]ss$/i,
     use: ["style-loader", "css-loader", "sass-loader"],
   },
+  {
+    test: /\.css$/,
+    use: [
+      "style-loader",
+      { loader: "css-loader", options: { importLoaders: 1 } },
+      "postcss-loader",
+    ],
+  },
 ];
 
 const prodPlugins = [new CompressionPlugin()];
@@ -28,8 +37,10 @@ const prodPlugins = [new CompressionPlugin()];
 const devPlugins = [];
 
 module.exports = (env, { mode }) => ({
+  entry: "./src/index.js",
   output: {
     filename: "app.[contentHash].js",
+    path: path.resolve(__dirname, "dist"),
   },
   module: {
     rules: jsRules,
