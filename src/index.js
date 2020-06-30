@@ -1,4 +1,4 @@
-import app from "./assets/app.js";
-import "./styles.css";
+import app from "./assets/app.ts";
+import "./tailwind.css";
 
 /*document.getElementById("app").prepend(app());*/
